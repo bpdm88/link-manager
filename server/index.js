@@ -13,3 +13,14 @@ app.listen(5000, () => console.log('server started on port 5000'))
 // set up routers
 
 app.use('/link', require('./routers/linkRouter'))
+
+// connect to mongoDB
+
+mongoose.connect(
+  'mongodb+srv://bpdm88:gEx9TB1cMGHIEckM@link-manager-cluster.twbfl.mongodb.net/main?retryWrites=true&w=majority',
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  err => {
+    if (err) return console.error(err)
+    console.log('connected to MongoDB')
+  }
+)
