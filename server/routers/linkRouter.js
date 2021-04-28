@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const Link = require('../models/linkModel')
 
+// GET
 router.get('/', async (req, res) => {
   try {
     const links = await Link.find()
@@ -10,6 +11,7 @@ router.get('/', async (req, res) => {
   }
 })
 
+//DELETE
 router.delete('/:id', async (req, res) => {
   try {
     const linkId = req.params.id
@@ -33,6 +35,7 @@ router.delete('/:id', async (req, res) => {
   }
 })
 
+//UPDATE
 router.put('/:id', async (req, res) => {
   try {
     const { title, author, link } = req.body
@@ -65,6 +68,7 @@ router.put('/:id', async (req, res) => {
   }
 })
 
+//POST
 router.post('/', async (req, res) => {
   try {
     const { title, author, link } = req.body
