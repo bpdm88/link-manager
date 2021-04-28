@@ -5,8 +5,14 @@ router.get('/test', (req, res) => {
   res.send('Router test')
 })
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const { title, author, link } = req.body
+
+  // validation
+
+  if (!link) {
+    return res.status(400).json({ errorMessage: 'You need to provide a link' })
+  }
 
   const newLink = new Link({
     title,
@@ -14,7 +20,9 @@ router.post('/', (req, res) => {
     link
   })
 
-  newLink.save()
+  const savedLink = await newLink.save()
+
+  res.json(savedLink)
 })
 
 module.exports = router
