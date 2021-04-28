@@ -1,5 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 // setup express server
 
@@ -17,7 +20,7 @@ app.use('/link', require('./routers/linkRouter'))
 // connect to mongoDB
 
 mongoose.connect(
-  'mongodb+srv://bpdm88:gEx9TB1cMGHIEckM@link-manager-cluster.twbfl.mongodb.net/main?retryWrites=true&w=majority',
+  process.env.MDB_CONNECT_STRING,
   { useNewUrlParser: true, useUnifiedTopology: true },
   err => {
     if (err) return console.error(err)
