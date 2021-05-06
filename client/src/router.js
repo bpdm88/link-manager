@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import HomeContainer from './app/home'
-import FormContainer from './app/form'
+import Home from './app/home'
+import Form from './app/form'
 
 import NavBar from './components/navbar'
 
@@ -11,12 +11,8 @@ const Router = () => {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route exact path="/">
-          <HomeContainer />
-        </Route>
-        <Route path="/form">
-          <FormContainer />
-        </Route>
+        <Route exact path="/" component={Home} />
+        <Route path="/form" component={Form} />
         <Route path="/login">Log in</Route>
         <Route path="/register">Register</Route>
       </Switch>

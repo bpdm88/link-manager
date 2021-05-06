@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 const FormContainer = () => {
   const [formData, setFormData] = useState({ title: '', author: '', link: '' })
+
+  const history = useHistory()
 
   const postLink = async e => {
     e.preventDefault()
@@ -14,6 +17,7 @@ const FormContainer = () => {
     }
 
     await axios.post('http://localhost:5000/link/', linkData)
+    history.push('/')
   }
 
   return (
