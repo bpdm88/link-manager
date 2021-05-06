@@ -6,7 +6,7 @@ const Home = ({ links }) => {
   return (
     <div>
       {links.map((link, i) => {
-        return <Link key={i} link={link.title} />
+        return <Link key={i} title={link.title} author={link.author} link={link.link} />
       })}
     </div>
   )
