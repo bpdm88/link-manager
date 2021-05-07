@@ -9,11 +9,14 @@ const HomeContainer = () => {
 
   useEffect(() => {
     getLinks()
-  })
+  }, [])
 
   const getLinks = async () => {
     const linksRes = await Axios.get('http://localhost:5000/link/')
-    setLinks(linksRes.data)
+    let sortedLinks = linksRes.data.sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt)
+    })
+    setLinks(sortedLinks)
   }
 
   return <Home links={links} />
