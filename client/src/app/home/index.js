@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import Axios from 'axios'
+import axios from 'axios'
 
 import Home from './home'
 
@@ -12,14 +12,18 @@ const HomeContainer = () => {
   }, [])
 
   const getLinks = async () => {
-    const linksRes = await Axios.get('http://localhost:5000/link/')
+    const linksRes = await axios.get('http://localhost:5000/link/')
     let sortedLinks = linksRes.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt)
     })
     setLinks(sortedLinks)
   }
 
-  return <Home links={links} />
+  const handleDelete = id => {
+    console.log(id)
+  }
+
+  return <Home links={links} handleDelete={handleDelete} />
 }
 
 export default HomeContainer

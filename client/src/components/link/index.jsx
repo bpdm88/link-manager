@@ -1,16 +1,16 @@
 import React from 'react'
 import axios from 'axios'
 
-const Link = ({ title, author, link, id }) => {
-  const handleDelete = async () => {
-    console.log(id)
-  }
+const Link = ({ title, author, onClick }) => {
+  // const handleDelete = async () => {
+  //   console.log(id)
+  // }
 
   return (
     <div>
       <h2>{title}</h2>
       <h4>{author}</h4>
-      <button onClick={handleDelete}>Delete</button>
+      <button onClick={onClick}>Delete</button>
     </div>
   )
 }
