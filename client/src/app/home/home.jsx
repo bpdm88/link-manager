@@ -2,18 +2,12 @@ import React from 'react'
 
 import Link from '../../components/link'
 
-const Home = ({ links, handleDelete }) => {
+const Home = ({ links, onDelete }) => {
   return (
     <div>
       {links.map(({ title, author, link, _id }, i) => {
         return (
-          <Link
-            key={i}
-            title={title}
-            author={author}
-            link={link}
-            onClick={() => handleDelete(_id)}
-          />
+          <Link key={i} title={title} author={author} link={link} onClick={() => onDelete(_id)} />
         )
       })}
     </div>

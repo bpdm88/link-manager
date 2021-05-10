@@ -19,11 +19,12 @@ const HomeContainer = () => {
     setLinks(sortedLinks)
   }
 
-  const handleDelete = id => {
-    console.log(id)
+  const onDelete = async id => {
+    await axios.delete(`http://localhost:5000/link/${id}`)
+    getLinks()
   }
 
-  return <Home links={links} handleDelete={handleDelete} />
+  return <Home links={links} onDelete={onDelete} />
 }
 
 export default HomeContainer
