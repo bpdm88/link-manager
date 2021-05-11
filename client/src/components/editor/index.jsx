@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Editor = ({ link, onUpdate }) => {
+const Editor = ({ link, onUpdate, closeEditor }) => {
   const [editData, setEditData] = useState({
     ...link,
     title: link.title,
@@ -39,6 +39,9 @@ const Editor = ({ link, onUpdate }) => {
         />
         <button onClick={update}>Submit</button>
       </form>
+      <div>
+        <button onClick={closeEditor}>Close</button>
+      </div>
     </div>
   )
 }

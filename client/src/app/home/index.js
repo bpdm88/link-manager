@@ -37,6 +37,12 @@ const HomeContainer = () => {
     setOpenEditor(true)
   }
 
+  // Closes link editor screen
+
+  const closeEditor = () => {
+    setOpenEditor(false)
+  }
+
   // Sends Put request to update link
 
   const onUpdate = async link => {
@@ -59,6 +65,7 @@ const HomeContainer = () => {
       onDelete={onDelete}
       setLinkToUpdate={setLinkToUpdate}
       onUpdate={onUpdate}
+      closeEditor={closeEditor}
     />
   )
 }
