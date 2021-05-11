@@ -9,6 +9,8 @@ const HomeContainer = () => {
   const [openEditor, setOpenEditor] = useState(false)
   const [linkToEdit, setLinkToEdit] = useState(null)
 
+  // Runs Get request for links
+
   useEffect(() => {
     getLinks()
   }, [])
@@ -21,17 +23,21 @@ const HomeContainer = () => {
     setLinks(sortedLinks)
   }
 
+  // Sends Delete request for link to be removed
+
   const onDelete = async id => {
     await axios.delete(`http://localhost:5000/link/${id}`)
     getLinks()
   }
 
-  const getUpdate = link => {
-    setLinkToEdit(link)
+  // Opens Editor + sets the link to be edited
 
+  const setLinkToUpdate = link => {
+    setLinkToEdit(link)
     setOpenEditor(true)
-    console.log(linkToEdit)
   }
+
+  // Sends Put request to update link
 
   const onUpdate = async link => {
     const newData = {
@@ -48,10 +54,10 @@ const HomeContainer = () => {
   return (
     <Home
       links={links}
-      onDelete={onDelete}
-      getUpdate={getUpdate}
       openEditor={openEditor}
       linkToEdit={linkToEdit}
+      onDelete={onDelete}
+      setLinkToUpdate={setLinkToUpdate}
       onUpdate={onUpdate}
     />
   )

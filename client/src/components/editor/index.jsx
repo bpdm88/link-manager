@@ -10,11 +10,9 @@ const Editor = ({ link, onUpdate }) => {
 
   const update = e => {
     e.preventDefault()
-
-    // console.log(link)
-    // console.log(editData)
     onUpdate(editData)
   }
+
   return (
     <div>
       <form>

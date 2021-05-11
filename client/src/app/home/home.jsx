@@ -3,7 +3,7 @@ import React from 'react'
 import Link from '../../components/link'
 import Editor from '../../components/editor'
 
-const Home = ({ links, onDelete, getUpdate, openEditor, linkToEdit, onUpdate }) => {
+const Home = ({ links, onDelete, setLinkToUpdate, openEditor, linkToEdit, onUpdate }) => {
   return (
     <div>
       {links.map((link, i) => {
@@ -14,7 +14,7 @@ const Home = ({ links, onDelete, getUpdate, openEditor, linkToEdit, onUpdate }) 
             author={link.author}
             link={link.link}
             onClick={() => onDelete(link._id)}
-            onUpdate={() => getUpdate(link)}
+            setLinkToUpdate={() => setLinkToUpdate(link)}
           />
         )
       })}
