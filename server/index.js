@@ -22,6 +22,7 @@ app.listen(5000, () => console.log('server started on port 5000'))
 // set up routers
 
 app.use('/link', require('./routers/linkRouter'))
+app.use('/auth', require('./routers/userRouter'))
 
 // connect to mongoDB
 
