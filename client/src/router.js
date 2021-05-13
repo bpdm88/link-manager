@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Home from './app/home'
 import Form from './app/form'
+import Register from './app/register'
+import Login from './app/login'
 
 import NavBar from './components/navbar'
 
@@ -13,8 +15,8 @@ const Router = () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/form" component={Form} />
-        <Route path="/login">Log in</Route>
-        <Route path="/register">Register</Route>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </Switch>
     </BrowserRouter>
   )
