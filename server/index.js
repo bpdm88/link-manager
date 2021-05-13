@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ app.use(
     origin: 'http://localhost:3000'
   })
 )
+app.use(cookieParser())
 
 app.listen(5000, () => console.log('server started on port 5000'))
 

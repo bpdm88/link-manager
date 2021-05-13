@@ -1,10 +1,12 @@
 const router = require('express').Router()
 const Link = require('../models/linkModel')
+const auth = require('../middleware/auth')
 
 // GET
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
-    const links = await Link.find()
+    console.log(req.user)
+    const links = await Link.find({ user: req.user })
     res.json(links)
   } catch (error) {
     res.status(500).send()
@@ -12,7 +14,7 @@ router.get('/', async (req, res) => {
 })
 
 //DELETE
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
   try {
     const linkId = req.params.id
 
@@ -28,6 +30,9 @@ router.delete('/:id', async (req, res) => {
       return res.status(400).json({ errorMessage: 'Link id not found' })
     }
 
+    if (existingLink.user.toString() !== req.user)
+      return res.status(401).json({ errorMessage: 'unauthorised' })
+
     await existingLink.delete()
     res.json(existingLink)
   } catch (error) {
@@ -36,7 +41,7 @@ router.delete('/:id', async (req, res) => {
 })
 
 //UPDATE
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
   try {
     const { title, author, link } = req.body
     const linkId = req.params.id
@@ -57,6 +62,9 @@ router.put('/:id', async (req, res) => {
       return res.status(400).json({ errorMessage: 'Link id not found' })
     }
 
+    if (originalLink.user.toString() !== req.user)
+      return res.status(401).json({ errorMessage: 'unauthorised' })
+
     originalLink.title = title
     originalLink.author = author
     originalLink.link = link
@@ -69,7 +77,7 @@ router.put('/:id', async (req, res) => {
 })
 
 //POST
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
   try {
     const { title, author, link } = req.body
 
@@ -82,7 +90,8 @@ router.post('/', async (req, res) => {
     const newLink = new Link({
       title,
       author,
-      link
+      link,
+      user: req.user
     })
 
     const savedLink = await newLink.save()

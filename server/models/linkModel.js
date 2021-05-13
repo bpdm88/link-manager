@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
+const ObjectId = mongoose.Schema.Types.ObjectId
 
 const linkSchema = new mongoose.Schema(
   {
     title: { type: String },
     author: { type: String },
-    link: { type: String }
+    link: { type: String },
+    user: { type: ObjectId, required: true }
   },
   {
     timestamps: true
