@@ -5,7 +5,6 @@ const auth = require('../middleware/auth')
 // GET
 router.get('/', auth, async (req, res) => {
   try {
-    console.log(req.user)
     const links = await Link.find({ user: req.user })
     res.json(links)
   } catch (error) {

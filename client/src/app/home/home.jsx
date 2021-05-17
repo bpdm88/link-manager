@@ -10,22 +10,24 @@ const Home = ({
   openEditor,
   closeEditor,
   linkToEdit,
-  onUpdate
+  onUpdate,
+  user
 }) => {
   return (
     <div>
-      {links.map((link, i) => {
-        return (
-          <Link
-            key={i}
-            title={link.title}
-            author={link.author}
-            link={link.link}
-            onClick={() => onDelete(link._id)}
-            setLinkToUpdate={() => setLinkToUpdate(link)}
-          />
-        )
-      })}
+      {user &&
+        links.map((link, i) => {
+          return (
+            <Link
+              key={i}
+              title={link.title}
+              author={link.author}
+              link={link.link}
+              onClick={() => onDelete(link._id)}
+              setLinkToUpdate={() => setLinkToUpdate(link)}
+            />
+          )
+        })}
       {openEditor ? (
         <Editor link={linkToEdit} onUpdate={onUpdate} closeEditor={() => closeEditor()} />
       ) : null}

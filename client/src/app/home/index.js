@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import axios from 'axios'
 
 import Home from './home'
+import UserContext from '../../context/UserContext'
 
 const HomeContainer = () => {
   const [links, setLinks] = useState([])
   const [openEditor, setOpenEditor] = useState(false)
   const [linkToEdit, setLinkToEdit] = useState(null)
+
+  const { user } = useContext(UserContext)
 
   // Runs Get request for links
 
@@ -66,6 +69,7 @@ const HomeContainer = () => {
       setLinkToUpdate={setLinkToUpdate}
       onUpdate={onUpdate}
       closeEditor={closeEditor}
+      user={user}
     />
   )
 }
