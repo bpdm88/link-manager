@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import axios from 'axios'
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
-const NavBar = ({ user, logOut }) => {
+import UserContext from '../../context/UserContext'
+
+const NavBar = () => {
+  const { user, getUser } = useContext(UserContext)
+
+  const history = useHistory()
+
+  // log out
+
+  const logOut = async () => {
+    await axios.get('http://localhost:5000/auth/logOut')
+
+    await getUser()
+    history.push('/')
+  }
   return (
     <div>
       <Link to="/">

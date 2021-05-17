@@ -15,8 +15,10 @@ const HomeContainer = () => {
   // Runs Get request for links
 
   useEffect(() => {
-    getLinks()
-  }, [])
+    if (!user) {
+      setLinks([])
+    } else getLinks()
+  }, [user])
 
   const getLinks = async () => {
     const linksRes = await axios.get('http://localhost:5000/link/')
