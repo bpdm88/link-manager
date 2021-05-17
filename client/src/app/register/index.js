@@ -1,9 +1,15 @@
 import axios from 'axios'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+
+import UserContext from '../../context/UserContext'
 
 const Register = () => {
   const [formData, setFormData] = useState({ email: '', password: '', passwordVerify: '' })
+
+  const { getUser } = useContext(UserContext)
+
+  const history = useHistory()
 
   const register = async e => {
     e.preventDefault()
@@ -15,6 +21,9 @@ const Register = () => {
     }
 
     await axios.post('http://localhost:5000/auth/', registerData)
+
+    await getUser()
+    history.push('/')
   }
   return (
     <div>

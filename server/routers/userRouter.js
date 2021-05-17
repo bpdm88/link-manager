@@ -109,4 +109,12 @@ router.get('/loggedIn', (req, res) => {
   }
 })
 
+router.get('/logOut', (req, res) => {
+  try {
+    res.clearCookie('token').send()
+  } catch (error) {
+    return res.json(null)
+  }
+})
+
 module.exports = router

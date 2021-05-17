@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-const NavBar = ({ user }) => {
+const NavBar = ({ user, logOut }) => {
   return (
     <div>
       <Link to="/">
@@ -16,7 +16,7 @@ const NavBar = ({ user }) => {
       ) : (
         <>
           <Link to="/form">Form</Link>
-          <button>Log Out</button>{' '}
+          <button onClick={logOut}>Log Out</button>{' '}
         </>
       )}
     </div>
