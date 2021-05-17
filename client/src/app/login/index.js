@@ -3,8 +3,11 @@ import React, { useState, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
 
+import ErrorMessage from '../../components/errorMessage'
+
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' })
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const history = useHistory()
 
@@ -18,10 +21,17 @@ const Login = () => {
       password: formData.password
     }
 
-    await axios.post('http://localhost:5000/auth/login', loginData)
-
-    await getUser()
-    history.push('/')
+    try {
+      await axios.post('http://localhost:5000/auth/login', loginData)
+      await getUser()
+      history.push('/')
+    } catch (error) {
+      if (error.response) {
+        if (error.response.data.errorMessage) {
+          setErrorMessage(error.response.data.errorMessage)
+        }
+      }
+    }
   }
   return (
     <div>
@@ -42,6 +52,7 @@ const Login = () => {
         />
         <button type="submit">Log in</button>
       </form>
+      {errorMessage && <ErrorMessage message={errorMessage} />}
       <p>
         Don't have an account <Link to="/register">Register instead</Link>
       </p>
