@@ -2,10 +2,13 @@ import axios from 'axios'
 import React, { useState, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
+import ErrorMessage from '../../components/errorMessage'
+
 import UserContext from '../../context/UserContext'
 
 const Register = () => {
   const [formData, setFormData] = useState({ email: '', password: '', passwordVerify: '' })
+  const [errorMessage, setErrorMessage] = useState(null)
 
   const { getUser } = useContext(UserContext)
 
@@ -20,10 +23,18 @@ const Register = () => {
       passwordVerify: formData.passwordVerify
     }
 
-    await axios.post('http://localhost:5000/auth/', registerData)
+    try {
+      await axios.post('http://localhost:5000/auth/', registerData)
 
-    await getUser()
-    history.push('/')
+      await getUser()
+      history.push('/')
+    } catch (error) {
+      if (error.response) {
+        if (error.response.data.errorMessage) {
+          setErrorMessage(error.response.data.errorMessage)
+        }
+      }
+    }
   }
   return (
     <div>
@@ -51,6 +62,7 @@ const Register = () => {
         />
         <button type="submit">Register</button>
       </form>
+      {errorMessage && <ErrorMessage message={errorMessage} />}
       <p>
         Already have an account <Link to="/login">login instead</Link>
       </p>
