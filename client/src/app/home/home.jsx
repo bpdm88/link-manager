@@ -2,9 +2,11 @@ import React from 'react'
 
 import Link from '../../components/link'
 import Editor from '../../components/editor'
+import Filter from '../../components/filter'
 
 const Home = ({
   links,
+  categories,
   onDelete,
   setLinkToUpdate,
   openEditor,
@@ -15,6 +17,9 @@ const Home = ({
 }) => {
   return (
     <div>
+      <div>
+        <Filter categories={categories} />
+      </div>
       {user &&
         links.map((link, i) => {
           return (

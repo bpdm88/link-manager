@@ -7,17 +7,21 @@ import UserContext from '../../context/UserContext'
 
 const HomeContainer = () => {
   const [links, setLinks] = useState([])
+  const [categories, setCategories] = useState([])
   const [openEditor, setOpenEditor] = useState(false)
   const [linkToEdit, setLinkToEdit] = useState(null)
 
   const { user } = useContext(UserContext)
 
-  // Runs Get request for links
+  // Runs Get request for links & categories
 
   useEffect(() => {
     if (!user) {
       setLinks([])
-    } else getLinks()
+    } else {
+      getLinks()
+      getCategories()
+    }
   }, [user])
 
   const getLinks = async () => {
@@ -26,6 +30,20 @@ const HomeContainer = () => {
       return new Date(b.createdAt) - new Date(a.createdAt)
     })
     setLinks(sortedLinks)
+  }
+
+  const getCategories = async () => {
+    const categories = []
+
+    const linksRes = await axios.get('http://localhost:5000/link/')
+
+    linksRes.data.map(({ category }) => {
+      if (!categories.includes(category)) {
+        categories.push(category)
+      }
+    })
+
+    setCategories(categories)
   }
 
   // Sends Delete request for link to be removed
@@ -66,6 +84,7 @@ const HomeContainer = () => {
   return (
     <Home
       links={links}
+      categories={categories}
       openEditor={openEditor}
       linkToEdit={linkToEdit}
       onDelete={onDelete}
