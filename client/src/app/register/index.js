@@ -64,7 +64,7 @@ const Register = () => {
       </form>
       {errorMessage && <ErrorMessage message={errorMessage} />}
       <p>
-        Already have an account <Link to="/login">login instead</Link>
+        Already have an account <Link to="/">login instead</Link>
       </p>
     </div>
   )

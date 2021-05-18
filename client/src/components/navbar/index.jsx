@@ -20,7 +20,7 @@ const NavBar = () => {
   }
   return (
     <div>
-      <Link to="/home">
+      <Link to={user ? '/home' : '/'}>
         <h1>Shelf</h1>
       </Link>
       {!user ? (
