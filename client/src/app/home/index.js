@@ -37,10 +37,11 @@ const HomeContainer = () => {
 
     const linksRes = await axios.get('http://localhost:5000/link/')
 
-    linksRes.data.map(({ category }) => {
+    linksRes.data.filter(({ category }) => {
       if (!categories.includes(category)) {
         categories.push(category)
       }
+      return true
     })
 
     setCategories(categories)
