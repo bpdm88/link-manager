@@ -54,7 +54,8 @@ const HomeContainer = () => {
     const newData = {
       title: link.title,
       author: link.author,
-      link: link.link
+      link: link.link,
+      category: link.category
     }
 
     await axios.put(`http://localhost:5000/link/${linkToEdit._id}`, newData)

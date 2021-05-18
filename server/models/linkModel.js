@@ -6,6 +6,7 @@ const linkSchema = new mongoose.Schema(
     title: { type: String },
     author: { type: String },
     link: { type: String },
+    category: { type: String },
     user: { type: ObjectId, required: true }
   },
   {

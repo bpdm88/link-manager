@@ -23,6 +23,7 @@ const Home = ({
               title={link.title}
               author={link.author}
               link={link.link}
+              category={link.category}
               onClick={() => onDelete(link._id)}
               setLinkToUpdate={() => setLinkToUpdate(link)}
             />

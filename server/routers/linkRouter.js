@@ -42,7 +42,7 @@ router.delete('/:id', auth, async (req, res) => {
 //UPDATE
 router.put('/:id', auth, async (req, res) => {
   try {
-    const { title, author, link } = req.body
+    const { title, author, link, category } = req.body
     const linkId = req.params.id
 
     // validation
@@ -67,6 +67,7 @@ router.put('/:id', auth, async (req, res) => {
     originalLink.title = title
     originalLink.author = author
     originalLink.link = link
+    originalLink.category = category
 
     const savedLink = await originalLink.save()
     res.json(savedLink)
@@ -78,7 +79,7 @@ router.put('/:id', auth, async (req, res) => {
 //POST
 router.post('/', auth, async (req, res) => {
   try {
-    const { title, author, link } = req.body
+    const { title, author, link, category } = req.body
 
     // validation
 
@@ -90,6 +91,7 @@ router.post('/', auth, async (req, res) => {
       title,
       author,
       link,
+      category,
       user: req.user
     })
 

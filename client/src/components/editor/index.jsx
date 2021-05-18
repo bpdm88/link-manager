@@ -5,7 +5,8 @@ const Editor = ({ link, onUpdate, closeEditor }) => {
     ...link,
     title: link.title,
     author: link.author,
-    link: link.link
+    link: link.link,
+    category: link.category
   })
 
   const update = e => {
@@ -36,6 +37,13 @@ const Editor = ({ link, onUpdate, closeEditor }) => {
           type="text"
           onChange={e => setEditData({ ...editData, link: e.target.value })}
           value={editData.link}
+        />
+        <label htmlFor="category">Category</label>
+        <input
+          id="category"
+          type="text"
+          onChange={e => setEditData({ ...editData, category: e.target.value })}
+          value={editData.category}
         />
         <button onClick={update}>Submit</button>
       </form>

@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 const FormContainer = () => {
-  const [formData, setFormData] = useState({ title: '', author: '', link: '' })
+  const [formData, setFormData] = useState({ title: '', author: '', link: '', category: '' })
 
   const history = useHistory()
 
@@ -15,7 +15,8 @@ const FormContainer = () => {
     const linkData = {
       title: formData.title,
       author: formData.author,
-      link: formData.link
+      link: formData.link,
+      category: formData.category
     }
 
     await axios.post('http://localhost:5000/link/', linkData)
@@ -45,6 +46,13 @@ const FormContainer = () => {
           type="text"
           onChange={e => setFormData({ ...formData, link: e.target.value })}
           value={formData.link}
+        />
+        <label htmlFor="category">Category</label>
+        <input
+          id="category"
+          type="text"
+          onChange={e => setFormData({ ...formData, category: e.target.value })}
+          value={formData.category}
         />
         <button type="submit">Submit</button>
       </form>
