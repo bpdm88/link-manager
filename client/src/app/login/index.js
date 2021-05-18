@@ -24,7 +24,7 @@ const Login = () => {
     try {
       await axios.post('http://localhost:5000/auth/login', loginData)
       await getUser()
-      history.push('/')
+      history.push('/home')
     } catch (error) {
       if (error.response) {
         if (error.response.data.errorMessage) {

@@ -20,12 +20,12 @@ const NavBar = () => {
   }
   return (
     <div>
-      <Link to="/">
+      <Link to="/home">
         <h1>Shelf</h1>
       </Link>
       {!user ? (
         <>
-          <Link to="/login">Log In</Link>
+          <Link to="/">Log In</Link>
           <Link to="/register">Register</Link>
         </>
       ) : (

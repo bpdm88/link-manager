@@ -27,7 +27,7 @@ const Register = () => {
       await axios.post('http://localhost:5000/auth/', registerData)
 
       await getUser()
-      history.push('/')
+      history.push('/home')
     } catch (error) {
       if (error.response) {
         if (error.response.data.errorMessage) {

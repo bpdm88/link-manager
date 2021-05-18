@@ -19,7 +19,7 @@ const FormContainer = () => {
     }
 
     await axios.post('http://localhost:5000/link/', linkData)
-    history.push('/')
+    history.push('/home')
   }
 
   return (
