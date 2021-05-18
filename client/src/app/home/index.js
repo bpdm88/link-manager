@@ -51,6 +51,7 @@ const HomeContainer = () => {
   const onDelete = async id => {
     await axios.delete(`http://localhost:5000/link/${id}`)
     getLinks()
+    getCategories()
   }
 
   // Opens Editor + sets the link to be edited
@@ -79,6 +80,7 @@ const HomeContainer = () => {
     await axios.put(`http://localhost:5000/link/${linkToEdit._id}`, newData)
     setOpenEditor(false)
     getLinks()
+    getCategories()
   }
 
   return (
