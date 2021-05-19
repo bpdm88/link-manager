@@ -17,4 +17,21 @@
   font-family: carme;
   font-size: var(--heading-alpha);
   color: var(--navy);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.heading--bravo {
+  font-family: carme;
+  font-size: var(--heading-bravo);
+  color: var(--navy);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+p {
+  font-family: nunito;
+  font-size: var(--standard);
+  color: var(--grey);
+  text-align: center;
 }

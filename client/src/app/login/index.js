@@ -39,8 +39,13 @@ const Login = () => {
     <div className="login--container">
       <div className="login--left">
         <h1 className="heading--alpha">Shelf</h1>
-        <img src={Logo} />
-        <h2>Manage, Share and Organise</h2>
+        <div>
+          <img src={Logo} />
+        </div>
+
+        <h2 className="heading--bravo">
+          Manage, Share and <span>Organise</span>
+        </h2>
 
         <p>
           Shelf lets you manage all of your links all in one place wherever it be recipies, articles
@@ -49,8 +54,8 @@ const Login = () => {
         </p>
       </div>
       <div className="login--right">
-        <h2>Log in to your account:</h2>
-        <form onSubmit={login}>
+        <h2 className="login-title">Log in to your account:</h2>
+        <form onSubmit={login} className="login--form">
           <label htmlFor="form-email">Email</label>
           <input
             type="email"
