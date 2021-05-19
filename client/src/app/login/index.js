@@ -5,6 +5,8 @@ import UserContext from '../../context/UserContext'
 
 import ErrorMessage from '../../components/errorMessage'
 
+import Logo from '../../assets/icons/icon-med.svg'
+
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' })
   const [errorMessage, setErrorMessage] = useState(null)
@@ -34,28 +36,42 @@ const Login = () => {
     }
   }
   return (
-    <div>
-      <form onSubmit={login}>
-        <label htmlFor="form-email">Email</label>
-        <input
-          type="email"
-          id="form-email"
-          onChange={e => setFormData({ ...formData, email: e.target.value })}
-          value={formData.email}
-        />
-        <label htmlFor="form-password">Password</label>
-        <input
-          type="password"
-          id="form-password"
-          onChange={e => setFormData({ ...formData, password: e.target.value })}
-          value={formData.password}
-        />
-        <button type="submit">Log in</button>
-      </form>
-      {errorMessage && <ErrorMessage message={errorMessage} />}
-      <p>
-        Don't have an account <Link to="/register">Register instead</Link>
-      </p>
+    <div className="login--container">
+      <div className="login--left">
+        <h1 className="heading--alpha">Shelf</h1>
+        <img src={Logo} />
+        <h2>Manage, Share and Organise</h2>
+
+        <p>
+          Shelf lets you manage all of your links all in one place wherever it be recipies, articles
+          or design. Set up categories and save any links in an organised manner so you can refer to
+          them again and again!{' '}
+        </p>
+      </div>
+      <div className="login--right">
+        <h2>Log in to your account:</h2>
+        <form onSubmit={login}>
+          <label htmlFor="form-email">Email</label>
+          <input
+            type="email"
+            id="form-email"
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
+            value={formData.email}
+          />
+          <label htmlFor="form-password">Password</label>
+          <input
+            type="password"
+            id="form-password"
+            onChange={e => setFormData({ ...formData, password: e.target.value })}
+            value={formData.password}
+          />
+          <button type="submit">Log in</button>
+        </form>
+        {errorMessage && <ErrorMessage message={errorMessage} />}
+        <p>
+          Don't have an account <Link to="/register">Register instead</Link>
+        </p>
+      </div>
     </div>
   )
 }

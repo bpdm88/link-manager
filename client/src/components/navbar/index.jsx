@@ -20,16 +20,16 @@ const NavBar = () => {
   }
   return (
     <div>
-      <Link to={user ? '/home' : '/'}>
-        <h1>Shelf</h1>
-      </Link>
       {!user ? (
         <>
-          <Link to="/">Log In</Link>
-          <Link to="/register">Register</Link>
+          {/* <Link to="/">Log In</Link>
+          <Link to="/register">Register</Link> */}
         </>
       ) : (
         <>
+          <Link to="/home">
+            <h1 className="heading--alpha">Shelf</h1>
+          </Link>
           <Link to="/form">Form</Link>
           <button onClick={logOut}>Log Out</button>{' '}
         </>
