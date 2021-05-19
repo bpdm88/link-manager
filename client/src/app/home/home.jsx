@@ -13,12 +13,14 @@ const Home = ({
   closeEditor,
   linkToEdit,
   onUpdate,
+  filterDisplay,
+  clearFilter,
   user
 }) => {
   return (
     <div>
       <div>
-        <Filter categories={categories} />
+        <Filter categories={categories} filterDisplay={filterDisplay} clearFilter={clearFilter} />
       </div>
       {user &&
         links.map((link, i) => {

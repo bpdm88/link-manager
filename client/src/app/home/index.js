@@ -47,6 +47,21 @@ const HomeContainer = () => {
     setCategories(categories)
   }
 
+  // filter links
+
+  const filterDisplay = async category => {
+    const filtered = []
+
+    const linksRes = await axios.get('http://localhost:5000/link/')
+
+    linksRes.data.map(link => {
+      if (link.category === category) {
+        filtered.push(link)
+      }
+    })
+    setLinks(filtered)
+  }
+
   // Sends Delete request for link to be removed
 
   const onDelete = async id => {
@@ -94,6 +109,8 @@ const HomeContainer = () => {
       setLinkToUpdate={setLinkToUpdate}
       onUpdate={onUpdate}
       closeEditor={closeEditor}
+      filterDisplay={filterDisplay}
+      clearFilter={getLinks}
       user={user}
     />
   )
