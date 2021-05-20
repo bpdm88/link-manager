@@ -17,8 +17,6 @@
   font-family: carme;
   font-size: var(--heading-alpha);
   color: var(--navy);
-  margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-sm);
 }
 
 .heading--bravo {
@@ -27,6 +25,12 @@
   color: var(--navy);
   margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-md);
+}
+
+.heading--charlie {
+  font-family: nunito-bold;
+  font-size: var(--heading-charlie);
+  color: white;
 }
 
 p {

@@ -23,3 +23,16 @@ h2 span {
   display: flex;
   flex-direction: column;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--primary-green);
+}
+
+.register-link {
+  color: var(--primary-green);
+  cursor: pointer;
+}

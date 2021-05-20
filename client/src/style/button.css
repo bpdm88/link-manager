@@ -1,0 +1,15 @@
+.primary-btn {
+  background-color: var(--primary-green);
+  border: none;
+  border-radius: 5px;
+  padding: var(--spacing-sm);
+  margin: var(--spacing-md);
+  font-family: nunito-bold;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background-color: var(--secondary-green);
+}

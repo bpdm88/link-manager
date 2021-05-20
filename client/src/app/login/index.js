@@ -5,6 +5,7 @@ import UserContext from '../../context/UserContext'
 
 import ErrorMessage from '../../components/errorMessage'
 import Input from '../../components/input'
+import Button from '../../components/button'
 
 import Logo from '../../assets/icons/icon-med.svg'
 
@@ -75,11 +76,14 @@ const Login = () => {
             value={formData.password}
             src={'key'}
           />
-          <button type="submit">Log in</button>
+          <Button type="submit">Sign In</Button>
         </form>
         {errorMessage && <ErrorMessage message={errorMessage} />}
         <p>
-          Don't have an account <Link to="/register">Register instead</Link>
+          Don't have an account{' '}
+          <span className="register-link">
+            <Link to="/register">register instead</Link>
+          </span>
         </p>
       </div>
     </div>
