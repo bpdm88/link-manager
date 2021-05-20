@@ -1,0 +1,20 @@
+.error p {
+  color: var(--red);
+}
+
+@media only screen and (min-width: 750px) {
+  .error {
+    background-color: var(--red);
+    padding: var(--spacing-md);
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 300px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .error p {
+    color: white;
+  }
+}
