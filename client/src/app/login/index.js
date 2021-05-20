@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
 
 import ErrorMessage from '../../components/errorMessage'
+import Input from '../../components/input'
 
 import Logo from '../../assets/icons/icon-med.svg'
 
@@ -56,17 +57,17 @@ const Login = () => {
       <div className="login--right">
         <h2 className="login-title">Log in to your account:</h2>
         <form onSubmit={login} className="login--form">
-          <label htmlFor="form-email">Email</label>
-          <input
+          <Input
+            name="Email"
             type="email"
-            id="form-email"
+            id="Email"
             onChange={e => setFormData({ ...formData, email: e.target.value })}
             value={formData.email}
           />
-          <label htmlFor="form-password">Password</label>
-          <input
+          <Input
+            name="Password"
             type="password"
-            id="form-password"
+            id="Password"
             onChange={e => setFormData({ ...formData, password: e.target.value })}
             value={formData.password}
           />

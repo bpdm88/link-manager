@@ -1,0 +1,19 @@
+.input {
+  display: flex;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  padding: var(--spacing-sm);
+}
+
+.input img {
+  padding-right: var(--spacing-sm);
+}
+
+input {
+  border: none;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
