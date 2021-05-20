@@ -40,51 +40,55 @@ const Login = () => {
   return (
     <div className="login--container">
       <div className="login--left">
-        <h1 className="heading--alpha">Shelf</h1>
-        <div>
-          <img src={Logo} />
+        <div className="left--content">
+          <div className="login--title">
+            <h1 className="heading--alpha">Shelf</h1>
+            <div>
+              <img src={Logo} />
+            </div>
+          </div>
+          <h2 className="heading--bravo">
+            Manage, Share and <span>Organise</span>
+          </h2>
+          <p>
+            Shelf lets you manage all of your links all in one place wherever it be recipies,
+            articles or design. Set up categories and save any links in an organised manner so you
+            can refer to them again and again!{' '}
+          </p>
         </div>
-
-        <h2 className="heading--bravo">
-          Manage, Share and <span>Organise</span>
-        </h2>
-
-        <p>
-          Shelf lets you manage all of your links all in one place wherever it be recipies, articles
-          or design. Set up categories and save any links in an organised manner so you can refer to
-          them again and again!{' '}
-        </p>
       </div>
       <div className="login--right">
-        <h2 className="login-title">Log in to your account:</h2>
-        <form onSubmit={login} className="login--form">
-          <Input
-            label={'Email:'}
-            name="form-email"
-            type="email"
-            id="form-email"
-            onChange={e => setFormData({ ...formData, email: e.target.value })}
-            value={formData.email}
-            src={'user'}
-          />
-          <Input
-            label={'Password:'}
-            name="form-password"
-            type="password"
-            id="form-password"
-            onChange={e => setFormData({ ...formData, password: e.target.value })}
-            value={formData.password}
-            src={'key'}
-          />
-          <Button type="submit">Sign In</Button>
-        </form>
-        {errorMessage && <ErrorMessage message={errorMessage} />}
-        <p>
-          Don't have an account{' '}
-          <span className="register-link">
-            <Link to="/register">register instead</Link>
-          </span>
-        </p>
+        <div className="right--content">
+          <h2 className="login--secondary-title heading--charlie">Log in to your account:</h2>
+          <form onSubmit={login} className="login--form">
+            <Input
+              label={'Email:'}
+              name="form-email"
+              type="email"
+              id="form-email"
+              onChange={e => setFormData({ ...formData, email: e.target.value })}
+              value={formData.email}
+              src={'user'}
+            />
+            <Input
+              label={'Password:'}
+              name="form-password"
+              type="password"
+              id="form-password"
+              onChange={e => setFormData({ ...formData, password: e.target.value })}
+              value={formData.password}
+              src={'key'}
+            />
+            <Button type="submit">Sign In</Button>
+          </form>
+          <div>{errorMessage && <ErrorMessage message={errorMessage} />}</div>
+          <div>
+            <p className="signup--tag">
+              Not yet a member
+              <Link to="/register"> sign up here</Link>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

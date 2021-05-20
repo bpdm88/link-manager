@@ -2,20 +2,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  padding: var(--spacing-md);
 }
 
-.login--left {
+.left--content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}
+
+.right--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h2 span {
   color: var(--secondary-green);
 }
 
-.login-title {
+.login--secondary-title {
   display: none;
 }
 
@@ -26,6 +34,8 @@ h2 span {
 
 a {
   text-decoration: none;
+  border-bottom: 1px solid #64bc9d;
+  padding-bottom: 4px;
 }
 
 a:visited {
@@ -35,4 +45,75 @@ a:visited {
 .register-link {
   color: var(--primary-green);
   cursor: pointer;
+}
+
+@media only screen and (min-width: 750px) {
+  .login--container {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+  }
+
+  .login--left {
+    background-color: white;
+    width: 50%;
+    height: 100vh;
+    padding-top: var(--spacing-xl);
+  }
+
+  .login--right {
+    background-color: var(--primary-green);
+    width: 50%;
+    height: 100vh;
+    padding-top: var(--spacing-xl);
+  }
+
+  .left--content {
+    padding-top: var(--spacing-xl);
+  }
+
+  .right--content {
+    padding-top: var(--spacing-xl);
+  }
+
+  .login--title {
+    display: flex;
+  }
+
+  .login--left p {
+    padding: var(--spacing-xl);
+    max-width: 600px;
+  }
+
+  .login--title img {
+    margin-left: var(--spacing-sm);
+  }
+
+  .login--secondary-title {
+    display: block;
+    margin: var(--spacing-md);
+  }
+
+  .login--form {
+    margin-top: var(--spacing-xl);
+  }
+
+  .signup--tag {
+    color: white;
+  }
+
+  a {
+    color: white;
+    border-bottom: 1px solid white;
+  }
+  a:visited {
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  .login--title img {
+    margin-top: var(--spacing-md);
+    margin-left: var(--spacing-xl);
+  }
 }

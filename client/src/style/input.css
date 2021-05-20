@@ -2,9 +2,11 @@
   display: flex;
   border: 0.5px solid black;
   border-radius: 5px;
+  width: 300px;
   padding: var(--spacing-xs);
   margin-top: var(--spacing-xs);
   margin-bottom: var(--spacing-sm);
+  background-color: white;
 }
 
 .input img {
@@ -28,4 +30,14 @@ label {
   font-family: nunito;
   font-size: var(--standard);
   color: var(--grey);
+}
+
+@media only screen and (min-width: 750px) {
+  .input {
+    margin-top: var(--spacing-sm);
+  }
+
+  label {
+    color: white;
+  }
 }

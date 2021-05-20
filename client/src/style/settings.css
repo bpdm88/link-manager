@@ -9,6 +9,7 @@
   /* typography */
   --heading-alpha: 64px;
   --heading-bravo: 24px;
+  --heading-charlie: 36px;
   --standard: 16px;
 
   /* spacing */
@@ -21,15 +22,10 @@
   --font-spacing: 12px;
 }
 
-@media screen and (max-width: 960px) {
-  /* :root {
-    --heading-alpha: 50px;
-    --heading-bravo: 30px;
-    --standard: 14px;
-    --spacing-md: 15px;
-    --spacing-sm: 8px;
-    --font-spacing: 10px;
-  } */
+@media screen and (min-width: 1250px) {
+  :root {
+    --heading-alpha: 120px;
+  }
 }
 
 @media screen and (max-width: 750px) {
