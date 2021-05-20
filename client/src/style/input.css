@@ -2,18 +2,30 @@
   display: flex;
   border: 0.5px solid black;
   border-radius: 5px;
-  padding: var(--spacing-sm);
+  padding: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
 }
 
 .input img {
   padding-right: var(--spacing-sm);
+  padding-left: var(--spacing-xs);
 }
 
 input {
   border: none;
+  font-family: nunito;
+  font-size: var(--standard);
+  color: var(--grey);
 }
 
 textarea:focus,
 input:focus {
   outline: none;
+}
+
+label {
+  font-family: nunito;
+  font-size: var(--standard);
+  color: var(--grey);
 }

@@ -58,18 +58,22 @@ const Login = () => {
         <h2 className="login-title">Log in to your account:</h2>
         <form onSubmit={login} className="login--form">
           <Input
-            name="Email"
+            label={'Email:'}
+            name="form-email"
             type="email"
-            id="Email"
+            id="form-email"
             onChange={e => setFormData({ ...formData, email: e.target.value })}
             value={formData.email}
+            src={'user'}
           />
           <Input
-            name="Password"
+            label={'Password:'}
+            name="form-password"
             type="password"
-            id="Password"
+            id="form-password"
             onChange={e => setFormData({ ...formData, password: e.target.value })}
             value={formData.password}
+            src={'key'}
           />
           <button type="submit">Log in</button>
         </form>

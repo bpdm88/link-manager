@@ -1,13 +1,14 @@
 import React from 'react'
 
 import User from '../../assets/icons/user.svg'
+import Key from '../../assets/icons/key.svg'
 
-const Input = ({ name, type, id, onChange, value }) => {
+const Input = ({ label, name, type, id, onChange, value, src }) => {
   return (
     <div>
-      <label htmlFor={name}>{name}</label>
+      <label htmlFor={name}>{label}</label>
       <div className="input">
-        <img src={User} />
+        <img src={src === 'user' ? User : Key} />
         <input type={type} id={id} onChange={onChange} value={value} />
       </div>
     </div>
