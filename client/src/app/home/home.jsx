@@ -1,8 +1,11 @@
 import React from 'react'
 
-import Link from '../../components/link'
+import { Link } from 'react-router-dom'
+
+import ShelfLink from '../../components/link'
 import Editor from '../../components/editor'
 import Filter from '../../components/filter'
+import Navbar from '../../components/navbar'
 
 const Home = ({
   links,
@@ -19,13 +22,19 @@ const Home = ({
 }) => {
   return (
     <div>
+      <Navbar />
+      <div className="welcome">
+        <Link to="/form">
+          <h2 className="add-btn">Add To Your Collection</h2>
+        </Link>
+      </div>
       <div>
         <Filter categories={categories} filterDisplay={filterDisplay} clearFilter={clearFilter} />
       </div>
       {user &&
         links.map((link, i) => {
           return (
-            <Link
+            <ShelfLink
               key={i}
               title={link.title}
               author={link.author}

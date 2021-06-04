@@ -5,6 +5,10 @@ import { Link, useHistory } from 'react-router-dom'
 
 import UserContext from '../../context/UserContext'
 
+import LgLogo from '../../assets/icons/icon-med.svg'
+import SmLogo from '../../assets/icons/icon-small.svg'
+import Signout from '../../assets/icons/signout.svg'
+
 const NavBar = () => {
   const { user, getUser } = useContext(UserContext)
 
@@ -19,21 +23,22 @@ const NavBar = () => {
     history.push('/')
   }
   return (
-    <div>
-      {!user ? (
-        <>
-          {/* <Link to="/">Log In</Link>
-          <Link to="/register">Register</Link> */}
-        </>
-      ) : (
-        <>
-          <Link to="/home">
-            <h1 className="heading--alpha">Shelf</h1>
-          </Link>
-          <Link to="/form">Form</Link>
-          <button onClick={logOut}>Log Out</button>{' '}
-        </>
-      )}
+    <div className="nav">
+      <Link to="/home">
+        <div className="nav-logo">
+          <img src={LgLogo} className="logo-lg" />
+          <img src={SmLogo} className="logo-sm" />
+          <h1 className="heading--alpha">Shelf</h1>
+        </div>
+      </Link>
+      <div className="logout" onClick={logOut}>
+        <img src={Signout} />
+        <div className="logout-btn">Log Out</div>
+      </div>
+
+      {/* <Link to="/form">
+            <h2 className="heading--bravo">Form</h2>
+          </Link> */}
     </div>
   )
 }

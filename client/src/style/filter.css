@@ -1,0 +1,32 @@
+.filter {
+  display: flex;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+}
+
+.filter form {
+  display: flex;
+}
+
+select {
+  width: 175px;
+  margin-left: var(--spacing-md);
+  margin-right: var(--spacing-sm);
+  border-radius: 5px;
+  font-family: nunito;
+}
+.filter-btn {
+  background-color: var(--secondary-green);
+  border: none;
+  border-radius: 5px;
+  padding-top: var(--spacing-xs);
+  padding-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  font-family: nunito-bold;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  margin-left: var(--spacing-xs);
+  margin-right: var(--spacing-xs);
+}

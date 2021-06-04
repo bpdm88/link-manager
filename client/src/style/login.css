@@ -35,11 +35,11 @@ h2 span {
   flex-direction: column;
 }
 
-a {
+/* a {
   text-decoration: none;
   border-bottom: 1px solid #64bc9d;
   padding-bottom: 4px;
-}
+} */
 
 a:visited {
   color: var(--primary-green);

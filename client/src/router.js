@@ -11,7 +11,7 @@ import NavBar from './components/navbar'
 const Router = () => {
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/register" component={Register} />

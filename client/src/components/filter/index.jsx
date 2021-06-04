@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import FilterIcon from '../../assets/icons/filter.svg'
+
 const Filter = ({ categories, filterDisplay, clearFilter }) => {
   const [filteredCat, setFilteredCat] = useState('')
 
@@ -19,9 +21,9 @@ const Filter = ({ categories, filterDisplay, clearFilter }) => {
   }
 
   return (
-    <div>
+    <div className="filter">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="options">Choose a category:</label>
+        <img src={FilterIcon} />
         <select id="options" onChange={handleChange}>
           <option></option>
           {categories.map((category, i) => {
@@ -32,9 +34,13 @@ const Filter = ({ categories, filterDisplay, clearFilter }) => {
             )
           })}
         </select>
-        <button type="submit">Submit</button>
+        <button className="filter-btn" type="submit">
+          Filter
+        </button>
       </form>
-      <button onClick={handleClear}>Clear Filter</button>
+      <button className="filter-btn" onClick={handleClear}>
+        Clear
+      </button>
     </div>
   )
 }

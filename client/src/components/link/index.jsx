@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Link = ({ title, author, category, onClick, setLinkToUpdate }) => {
+const ShelfLink = ({ title, author, category, onClick, setLinkToUpdate }) => {
   return (
     <div>
       <h2>{title}</h2>
@@ -12,4 +12,4 @@ const Link = ({ title, author, category, onClick, setLinkToUpdate }) => {
   )
 }
 
-export default Link
+export default ShelfLink
