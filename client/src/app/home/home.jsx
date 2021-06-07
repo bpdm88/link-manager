@@ -24,6 +24,10 @@ const Home = ({
     <div>
       <Navbar />
       <div className="welcome">
+        <p>
+          Welcome to Shelf, add links using the button below to add to your collection and use the
+          filter below to sort through your links!
+        </p>
         <Link to="/form">
           <h2 className="add-btn">Add To Your Collection</h2>
         </Link>

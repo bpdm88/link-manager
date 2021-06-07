@@ -8,7 +8,7 @@ const Input = ({ label, name, type, id, onChange, value, src }) => {
     <div>
       <label htmlFor={name}>{label}</label>
       <div className="input">
-        <img src={src === 'user' ? User : Key} />
+        <img src={src === 'user' ? User : src === 'key' ? Key : null} />
         <input type={type} id={id} onChange={onChange} value={value} />
       </div>
     </div>

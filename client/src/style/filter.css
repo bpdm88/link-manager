@@ -1,7 +1,10 @@
 .filter {
   display: flex;
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-xl);
+  margin-left: var(--spacing-md);
+  margin-right: var(--spacing-md);
+  border-bottom: 1px solid grey;
 }
 
 .filter form {
