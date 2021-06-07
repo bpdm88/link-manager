@@ -24,7 +24,6 @@
   font-family: nunito-bold;
   font-size: 12px;
   color: white;
-  cursor: pointer;
   margin-left: var(--spacing-xs);
   margin-right: var(--spacing-xs);
 }
@@ -51,7 +50,16 @@
   font-family: nunito-bold;
   font-size: 12px;
   color: white;
-  cursor: pointer;
   margin-left: var(--spacing-xs);
   margin-right: var(--spacing-xs);
+}
+
+.link-btns {
+  display: flex;
+  align-items: center;
+}
+
+.link-btns img {
+  margin-right: var(--spacing-sm);
+  cursor: pointer;
 }

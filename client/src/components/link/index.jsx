@@ -1,5 +1,8 @@
 import React from 'react'
 
+import Bin from '../../assets/icons/bin.svg'
+import Edit from '../../assets/icons/edit.svg'
+
 const ShelfLink = ({ title, author, category, onClick, setLinkToUpdate }) => {
   return (
     <div className="link-container">
@@ -10,8 +13,12 @@ const ShelfLink = ({ title, author, category, onClick, setLinkToUpdate }) => {
           <p className="link-tag">{category}</p>
         </div>
         <div className="link-btns">
-          <button onClick={onClick}>Delete</button>
-          <button onClick={setLinkToUpdate}>Edit</button>
+          <div onClick={setLinkToUpdate}>
+            <img src={Edit} alt="edit" />
+          </div>
+          <div onClick={onClick}>
+            <img src={Bin} alt="delete" />
+          </div>
         </div>
       </div>
     </div>

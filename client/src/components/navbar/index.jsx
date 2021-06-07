@@ -32,7 +32,7 @@ const NavBar = () => {
         </div>
       </Link>
       <div className="logout" onClick={logOut}>
-        <img src={Signout} />
+        {/* <img src={Signout} /> */}
         <div className="logout-btn">Log Out</div>
       </div>
 

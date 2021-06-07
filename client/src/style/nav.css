@@ -26,8 +26,8 @@
   border: none;
   border-radius: 5px;
   padding: var(--spacing-sm);
-  font-family: nunito-bold;
-  font-size: 16px;
+  font-family: carme;
+  font-size: 18px;
   color: var(--light-grey);
 }
 

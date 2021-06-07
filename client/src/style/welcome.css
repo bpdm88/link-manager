@@ -1,36 +1,34 @@
 .welcome {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding-left: var(--spacing-md);
   padding-right: var(--spacing-md);
 }
 
 .welcome p {
   padding-top: var(--spacing-md);
+  text-align: justify;
+}
+
+h2 {
+  font-family: nunito-bold;
+  font-size: 18px;
+  color: white;
 }
 
 .add-btn {
   text-align: center;
-  margin: var(--spacing-lg);
-  background-color: var(--navy);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--secondary-green);
   border: none;
   border-radius: 5px;
   padding-top: var(--spacing-xs);
   padding-bottom: var(--spacing-xs);
   padding-left: var(--spacing-sm);
   padding-right: var(--spacing-sm);
-  font-family: nunito-bold;
-  font-size: 18px;
-  color: white;
   cursor: pointer;
-  width: 250px;
+  width: 150px;
 }
 
 a {
   text-decoration: none;
-}
-
-.add-btn:hover {
-  background-color: var(--secondary-green);
 }

@@ -26,11 +26,13 @@ const Home = ({
       <div className="welcome">
         <p>
           Welcome to Shelf, add links using the button below to add to your collection and use the
-          filter below to sort through your links!
+          filter to sort through your links by category!
         </p>
-        <Link to="/form">
-          <h2 className="add-btn">Add To Your Collection</h2>
-        </Link>
+        <div className="add-btn">
+          <Link to="/form">
+            <h2>Add A Link</h2>
+          </Link>
+        </div>
       </div>
       <div>
         <Filter categories={categories} filterDisplay={filterDisplay} clearFilter={clearFilter} />
