@@ -35,7 +35,7 @@
   .nav {
     padding-right: var(--spacing-lg);
     padding-left: var(--spacing-lg);
-    padding-top: var(--spacing-sm);
+    padding-top: var(--spacing-md);
     align-items: flex-start;
   }
   .nav h1 {

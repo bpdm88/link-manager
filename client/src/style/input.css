@@ -36,8 +36,4 @@ label {
   .input {
     margin-top: var(--spacing-sm);
   }
-
-  label {
-    color: white;
-  }
 }

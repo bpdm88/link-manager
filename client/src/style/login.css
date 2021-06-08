@@ -35,12 +35,6 @@ h2 span {
   flex-direction: column;
 }
 
-/* a {
-  text-decoration: none;
-  border-bottom: 1px solid #64bc9d;
-  padding-bottom: 4px;
-} */
-
 a:visited {
   color: var(--primary-green);
 }
@@ -48,6 +42,10 @@ a:visited {
 .register-link {
   color: var(--primary-green);
   cursor: pointer;
+}
+
+.signup--tag {
+  margin-bottom: var(--spacing-md);
 }
 
 @media only screen and (min-width: 750px) {
@@ -81,6 +79,7 @@ a:visited {
 
   .login--title {
     display: flex;
+    align-items: center;
   }
 
   .login--left p {
@@ -112,11 +111,8 @@ a:visited {
   a:visited {
     color: white;
   }
-}
 
-@media only screen and (min-width: 1250px) {
-  .login--title img {
-    margin-top: var(--spacing-md);
-    margin-left: var(--spacing-xl);
+  .login--form label {
+    color: white;
   }
 }
