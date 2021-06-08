@@ -8,7 +8,6 @@ import UserContext from '../../context/UserContext'
 const HomeContainer = () => {
   const [links, setLinks] = useState([])
   const [categories, setCategories] = useState([])
-  const [openEditor, setOpenEditor] = useState(false)
   const [linkToEdit, setLinkToEdit] = useState(null)
 
   const { user } = useContext(UserContext)
@@ -70,17 +69,10 @@ const HomeContainer = () => {
     getCategories()
   }
 
-  // Opens Editor + sets the link to be edited
+  // Sets the link to be edited
 
   const setLinkToUpdate = link => {
     setLinkToEdit(link)
-    setOpenEditor(true)
-  }
-
-  // Closes link editor screen
-
-  const closeEditor = () => {
-    setOpenEditor(false)
   }
 
   // Sends Put request to update link
@@ -94,7 +86,6 @@ const HomeContainer = () => {
     }
 
     await axios.put(`http://localhost:5000/link/${linkToEdit._id}`, newData)
-    setOpenEditor(false)
     getLinks()
     getCategories()
   }
@@ -103,12 +94,10 @@ const HomeContainer = () => {
     <Home
       links={links}
       categories={categories}
-      openEditor={openEditor}
       linkToEdit={linkToEdit}
       onDelete={onDelete}
       setLinkToUpdate={setLinkToUpdate}
       onUpdate={onUpdate}
-      closeEditor={closeEditor}
       filterDisplay={filterDisplay}
       clearFilter={getLinks}
       user={user}

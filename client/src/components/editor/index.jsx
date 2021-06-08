@@ -12,6 +12,7 @@ const Editor = ({ link, onUpdate, closeEditor }) => {
   const update = e => {
     e.preventDefault()
     onUpdate(editData)
+    closeEditor()
   }
 
   return (

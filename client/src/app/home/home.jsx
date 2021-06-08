@@ -3,7 +3,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import ShelfLink from '../../components/link'
-import Editor from '../../components/editor'
 import Filter from '../../components/filter'
 import Navbar from '../../components/navbar'
 
@@ -12,8 +11,6 @@ const Home = ({
   categories,
   onDelete,
   setLinkToUpdate,
-  openEditor,
-  closeEditor,
   linkToEdit,
   onUpdate,
   filterDisplay,
@@ -48,12 +45,11 @@ const Home = ({
               category={link.category}
               onClick={() => onDelete(link._id)}
               setLinkToUpdate={() => setLinkToUpdate(link)}
+              linkToEdit={linkToEdit}
+              onUpdate={onUpdate}
             />
           )
         })}
-      {openEditor ? (
-        <Editor link={linkToEdit} onUpdate={onUpdate} closeEditor={() => closeEditor()} />
-      ) : null}
     </div>
   )
 }
