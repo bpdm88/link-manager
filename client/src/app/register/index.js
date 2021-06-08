@@ -53,9 +53,8 @@ const Register = () => {
             Manage, Share and <span>Organise</span>
           </h2>
           <p>
-            Shelf lets you manage all of your links all in one place wherever it be recipies,
-            articles or design. Set up categories and save any links in an organised manner so you
-            can refer to them again and again!{' '}
+            Shelf lets you manage all of your links in one place. Set up categories and save any
+            links in an organised manner so you can refer to them again and again!{' '}
           </p>
         </div>
       </div>
