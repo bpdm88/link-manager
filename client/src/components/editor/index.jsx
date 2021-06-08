@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import Input from '../input'
+
 const Editor = ({ link, onUpdate, closeEditor }) => {
   const [editData, setEditData] = useState({
     ...link,
@@ -16,41 +18,43 @@ const Editor = ({ link, onUpdate, closeEditor }) => {
   }
 
   return (
-    <div>
+    <div className="editor">
       <form>
-        <label htmlFor="title">Title</label>
-        <input
+        <Input
+          label="Title"
           id="title"
           type="text"
           onChange={e => setEditData({ ...editData, title: e.target.value })}
           value={editData.title}
         />
-        <label htmlFor="author">Author</label>
-        <input
+        <Input
+          label="Author"
           id="author"
           type="text"
           onChange={e => setEditData({ ...editData, author: e.target.value })}
           value={editData.author}
         />
-        <label htmlFor="link">Link</label>
-        <input
+        <Input
+          label="Link"
           id="link"
           type="text"
           onChange={e => setEditData({ ...editData, link: e.target.value })}
           value={editData.link}
         />
-        <label htmlFor="category">Category</label>
-        <input
+        <Input
+          label="Category"
           id="category"
           type="text"
           onChange={e => setEditData({ ...editData, category: e.target.value })}
           value={editData.category}
         />
-        <button onClick={update}>Submit</button>
+        <button onClick={closeEditor} className="cancel-btn">
+          Cancel
+        </button>
+        <button onClick={update} className="editor-btn">
+          Submit
+        </button>
       </form>
-      <div>
-        <button onClick={closeEditor}>Close</button>
-      </div>
     </div>
   )
 }

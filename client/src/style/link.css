@@ -60,6 +60,6 @@
 }
 
 .link-btns img {
-  margin-right: var(--spacing-sm);
+  margin-right: var(--spacing-md);
   cursor: pointer;
 }

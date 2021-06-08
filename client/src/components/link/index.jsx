@@ -5,7 +5,16 @@ import Edit from '../../assets/icons/edit.svg'
 
 import Editor from '../editor'
 
-const ShelfLink = ({ title, author, category, onClick, setLinkToUpdate, linkToEdit, onUpdate }) => {
+const ShelfLink = ({
+  title,
+  author,
+  category,
+  link,
+  onClick,
+  setLinkToUpdate,
+  linkToEdit,
+  onUpdate
+}) => {
   const [show, setShow] = useState(false)
 
   const onEdit = () => {
@@ -15,7 +24,11 @@ const ShelfLink = ({ title, author, category, onClick, setLinkToUpdate, linkToEd
 
   return (
     <div className="link-container">
-      <h3 className="link-title">{title}</h3>
+      <div>
+        <a target="_blank" href={`//${link}`}>
+          <h3 className="link-title">{title}</h3>
+        </a>
+      </div>
       <div className="link-details">
         <div className="link-subtitles">
           <h4 className="link-author">{author}</h4>
