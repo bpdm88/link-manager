@@ -25,7 +25,7 @@ const ShelfLink = ({
   return (
     <div className="link-container">
       <div>
-        <a target="_blank" href={`//${link}`}>
+        <a target="_blank" rel="noreferrer" href={`//${link}`}>
           <h3 className="link-title">{title}</h3>
         </a>
       </div>

@@ -23,7 +23,7 @@ const Filter = ({ categories, filterDisplay, clearFilter }) => {
   return (
     <div className="filter">
       <form onSubmit={handleSubmit}>
-        <img src={FilterIcon} />
+        <img src={FilterIcon} alt="filter" />
         <select id="options" onChange={handleChange}>
           <option></option>
           {categories.map((category, i) => {
