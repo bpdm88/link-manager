@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import domain from '../../util/domain'
 
 import Navbar from '../../components/navbar'
 import Input from '../../components/input'
@@ -23,7 +24,7 @@ const FormContainer = () => {
       category: formData.category
     }
 
-    await axios.post('http://localhost:5000/link/', linkData)
+    await axios.post(`${domain}/link/`, linkData)
     history.push('/home')
   }
 

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 
+import domain from '../../util/domain'
 import axios from 'axios'
 
 import Home from './home'
@@ -24,7 +25,7 @@ const HomeContainer = () => {
   }, [user])
 
   const getLinks = async () => {
-    const linksRes = await axios.get('http://localhost:5000/link/')
+    const linksRes = await axios.get(`${domain}/link/`)
     let sortedLinks = linksRes.data.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt)
     })
@@ -34,7 +35,7 @@ const HomeContainer = () => {
   const getCategories = async () => {
     const categories = []
 
-    const linksRes = await axios.get('http://localhost:5000/link/')
+    const linksRes = await axios.get(`${domain}/link/`)
 
     linksRes.data.filter(({ category }) => {
       if (!categories.includes(category)) {
@@ -51,7 +52,7 @@ const HomeContainer = () => {
   const filterDisplay = async category => {
     const filtered = []
 
-    const linksRes = await axios.get('http://localhost:5000/link/')
+    const linksRes = await axios.get(`${domain}/link/`)
 
     linksRes.data.map(link => {
       if (link.category === category) {
@@ -64,7 +65,7 @@ const HomeContainer = () => {
   // Sends Delete request for link to be removed
 
   const onDelete = async id => {
-    await axios.delete(`http://localhost:5000/link/${id}`)
+    await axios.delete(`${domain}/link/${id}`)
     getLinks()
     getCategories()
   }
@@ -85,7 +86,7 @@ const HomeContainer = () => {
       category: link.category
     }
 
-    await axios.put(`http://localhost:5000/link/${linkToEdit._id}`, newData)
+    await axios.put(`${domain}/link/${linkToEdit._id}`, newData)
     getLinks()
     getCategories()
   }

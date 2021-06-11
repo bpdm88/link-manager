@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Link, useHistory } from 'react-router-dom'
 
 import UserContext from '../../context/UserContext'
+import domain from '../../util/domain'
 
 import LgLogo from '../../assets/icons/icon-med.svg'
 import SmLogo from '../../assets/icons/icon-small.svg'
@@ -16,7 +17,7 @@ const NavBar = () => {
   // log out
 
   const logOut = async () => {
-    await axios.get('http://localhost:5000/auth/logOut')
+    await axios.get(`${domain}/auth/logOut`)
 
     await getUser()
     history.push('/')

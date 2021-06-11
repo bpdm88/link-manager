@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import domain from '../../util/domain'
 
 import ErrorMessage from '../../components/errorMessage'
 import Input from '../../components/input'
@@ -27,7 +28,7 @@ const Register = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/auth/', registerData)
+      await axios.post(`${domain}/auth/`, registerData)
 
       await getUser()
       history.push('/home')
